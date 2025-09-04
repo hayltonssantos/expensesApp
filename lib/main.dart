@@ -19,7 +19,7 @@ class ExpensesApp extends StatelessWidget {
 class MyHomePage extends StatelessWidget {
   final _transactions = [
     Transaction(id: 't1', title: 'Novo Tenis Corrida', value: 310.76, date: DateTime.now()),
-    Transaction(id: 't2', title: 'Conta de Luz', value: 10.76, date: DateTime.now()),
+    Transaction(id: 't2', title: 'Conta de Luz', value: 100.76, date: DateTime.now()),
   ];
 
   @override
@@ -59,7 +59,7 @@ class MyHomePage extends StatelessWidget {
                       ),
                       padding: EdgeInsets.all(10),
                       child: Text(
-                        tr.value.toString(),
+                        'R\$ ${tr.value.toStringAsFixed(2)}',
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 20,
