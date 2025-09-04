@@ -8,6 +8,17 @@ class TransactionForm extends StatelessWidget {
   final void Function(String, double) onSubmit;
 
   TransactionForm(this.onSubmit);
+
+  _submitForm(){
+      final title = titleController.text;
+      final value = double.tryParse(valueController.text) ?? 0.0;
+      if(title.isEmpty || value <= 0){
+        return;
+      }
+
+      onSubmit(title, value);
+    }
+
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -20,6 +31,7 @@ class TransactionForm extends StatelessWidget {
                     
                     TextField(
                       controller: titleController,
+                      onSubmitted: (_) => _submitForm(),
                       decoration: InputDecoration(
                       labelText: 'Titulo'
                       ),
@@ -27,6 +39,8 @@ class TransactionForm extends StatelessWidget {
       
                     TextField(
                       controller: valueController,
+                      keyboardType: TextInputType.numberWithOptions(decimal: true),
+                      onSubmitted: (_) => _submitForm(),
                       decoration: InputDecoration(
                       labelText: 'Valor R\$'
                       )
@@ -36,11 +50,7 @@ class TransactionForm extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.end,
                       children: [
                         FilledButton(
-                          onPressed: () {
-                            final title = titleController.text;
-                            final value = double.tryParse(valueController.text) ?? 0.0;
-                            onSubmit(title, value);
-                          }, 
+                          onPressed: _submitForm, 
                           child: Text('Nova Transação',
                           style: TextStyle(
                             color: Colors.white
