@@ -30,7 +30,6 @@ class MyHomePage extends StatelessWidget {
         title: Text('Despesas Pessoais'),
       ),
       body: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: <Widget>[
           Container(
@@ -89,6 +88,42 @@ class MyHomePage extends StatelessWidget {
               );
             }).toList()
             ]
+          ),
+          Card(
+            elevation: 5,
+            child: Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: Column(
+                children: <Widget>[
+                  
+                  TextField(
+                    decoration: InputDecoration(
+                      labelText: 'Titulo'
+                    ),
+                  ),
+
+                  TextField(
+                    decoration: InputDecoration(
+                      labelText: 'Valor R\$'
+                      )
+                  ),
+
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      FilledButton(
+                        onPressed: null, 
+                        child: Text('Nova Transação',
+                        style: TextStyle(
+                          color: Colors.purple
+                          ),
+                          )
+                        ),
+                    ],
+                  )
+                ],
+              ),
+            ),
           )
         ],
       )
