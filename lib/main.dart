@@ -50,6 +50,8 @@ class _MyHomePageState extends State<MyHomePage> {
     setState(() {
       _transactions.add(newTransaction);
     });
+
+    Navigator.of(context).pop();
   }
 
   _openTransactionFormModal(BuildContext context) {
@@ -60,6 +62,8 @@ class _MyHomePageState extends State<MyHomePage> {
       },
     );
   }
+
+
 
   @override
   Widget build(BuildContext context) {
