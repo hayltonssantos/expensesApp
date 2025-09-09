@@ -12,7 +12,7 @@ class TransactionList extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height:
-          300, //onrigatorio para ter scroll e o ListView puro cria todas as estancias ao mesmo tempo temos q eu usar o builder
+          420, //onrigatorio para ter scroll e o ListView puro cria todas as estancias ao mesmo tempo temos q eu usar o builder
       child: transaction.isEmpty? Column(
         children: <Widget>[
           Text(
