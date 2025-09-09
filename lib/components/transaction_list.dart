@@ -12,7 +12,20 @@ class TransactionList extends StatelessWidget {
     return Container(
       height:
           300, //onrigatorio para ter scroll e o ListView puro cria todas as estancias ao mesmo tempo temos q eu usar o builder
-      child: ListView.builder(
+      child: transaction.isEmpty? Column(
+        children: <Widget>[
+          Text(
+            'Nenhuma Transação Cadastrada!',
+            style: Theme.of(context).textTheme.titleLarge,
+          ),
+          SizedBox(height: 20,), //espaçmento
+          Container(
+            height: 200,
+            child: Image.asset('assets/images/waiting.png',
+            fit: BoxFit.cover),
+          )
+        ],
+        )  : ListView.builder(
         itemCount: transaction.length, //tamanho da lista em qnt
         itemBuilder: (ctx, index) { //constroi a lista conforme a necessidade
           final tr = transaction[index];
